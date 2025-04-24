@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создать резюме | JobFinder</title>
+    <link rel="stylesheet" href="stylesmain.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                </svg>
+                <h1><a href= index.html>JobFinder</a></h3>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="jobs.html">Вакансии</a></li>
+                    <li><a href="create-resume.html" class="active">Создать резюме</a></li>
+                    <li><a href="create-vacancy.html">Разместить вакансию</a></li>
+                </ul>
+            </nav>
+            <a href="profile.html" class="profile-link">
+                <i class="fas fa-user-circle"></i>
+            </a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="resume-form-section">
+            <div class="container">
+                <h2 class="section-title">Создать резюме</h2>
+                <form id="resume-form" class="resume-form">
+                    <div class="form-section">
+                        <h3>Основная информация</h3>
+                        <div class="form-group">
+                            <label for="fullname">ФИО*</label>
+                            <input type="text" id="fullname" name="fullname" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="birthdate">Дата рождения*</label>
+                                <input type="date" id="birthdate" name="birthdate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Пол</label>
+                                <select id="gender" name="gender">
+                                    <option value="male">Мужской</option>
+                                    <option value="female">Женский</option>
+                                    <option value="other">Другой</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон*</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Город проживания*</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Желаемая должность и зарплата</h3>
+                        <div class="form-group">
+                            <label for="position">Желаемая должность*</label>
+                            <input type="text" id="position" name="position" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="salary">Желаемая зарплата (руб.)</label>
+                            <input type="number" id="salary" name="salary">
+                        </div>
+                        <div class="form-group">
+                            <label for="employment-type">Тип занятости</label>
+                            <select id="employment-type" name="employment-type">
+                                <option value="full">Полная занятость</option>
+                                <option value="part">Частичная занятость</option>
+                                <option value="remote">Удаленная работа</option>
+                                <option value="project">Проектная работа</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Опыт работы</h3>
+                        <div id="experience-container">
+                            <div class="experience-item">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Компания*</label>
+                                        <input type="text" name="company[]" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Должность*</label>
+                                        <input type="text" name="job-title[]" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Период работы (с)*</label>
+                                        <input type="date" name="start-date[]" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Период работы (по)</label>
+                                        <input type="date" name="end-date[]">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Обязанности и достижения</label>
+                                    <textarea name="responsibilities[]" rows="3"></textarea>
+                                </div>
+                                <button type="button" class="btn btn-remove remove-experience">Удалить</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-experience" class="btn btn-secondary">Добавить место работы</button>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Образование</h3>
+                        <div id="education-container">
+                            <div class="education-item">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Учебное заведение*</label>
+                                        <input type="text" name="institution[]" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Специальность*</label>
+                                        <input type="text" name="specialty[]" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Год окончания*</label>
+                                        <input type="number" name="graduation-year[]" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Степень</label>
+                                        <input type="text" name="degree[]">
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-remove remove-education">Удалить</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-education" class="btn btn-secondary">Добавить образование</button>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Навыки</h3>
+                        <div class="form-group">
+                            <label>Ключевые навыки (через запятую)</label>
+                            <textarea id="skills" name="skills" rows="3" placeholder="Например: HTML, CSS, JavaScript, Photoshop"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Дополнительная информация</h3>
+                        <div class="form-group">
+                            <label>О себе</label>
+                            <textarea id="about" name="about" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Языки</label>
+                            <input type="text" id="languages" name="languages" placeholder="Например: Английский — B2">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Сохранить резюме</button>
+                        <button type="button" id="preview-resume" class="btn btn-secondary">Предпросмотр</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>JobFinder</h3>
+                    <p>Лучшее агентство занятости в вашем регионе</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email:vadimpotrebkodomashni@gmail.com</p>
+                    <p>Телефон: +375 (50) 515-05-10</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Соцсети</h3>
+                    <div class="social-links">
+                        <a href="https://t.me/Sosambba"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.instagram.com/smile9face/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 JobFinder. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scriptsmain.js"></script>
+    <script src="scriptsresume.js"></script>
+</body>
+</html>

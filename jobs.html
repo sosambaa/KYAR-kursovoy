@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск вакансий | JobFinder</title>
+    <link rel="stylesheet" href="stylesmain.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                </svg>
+                <h1><a href= index.html>JobFinder</a></h3>
+            </div>
+            <nav class="nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="jobs.html">Вакансии</a></li>
+                    <li><a href="create-resume.html">Создать резюме</a></li>
+                    <li><a href="create-vacancy.html">Разместить вакансию</a></li>
+                </ul>
+            </nav>
+            <a href="profile.html" class="profile-link">
+                <i class="fas fa-user-circle"></i>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="job-search">
+            <div class="container">
+                <h2 class="section-title">Поиск вакансий</h2>
+                <div class="search-form">
+                    <div class="search-input">
+                        <input type="text" placeholder="Должность, ключевые слова">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="filters">
+                        <select id="industry">
+                            <option value="">Все отрасли</option>
+                            <option value="it">IT</option>
+                            <option value="finance">Финансы</option>
+                            <option value="education">Образование</option>
+                            <option value="healthcare">Здравоохранение</option>
+                        </select>
+                        <select id="experience">
+                            <option value="">Любой опыт</option>
+                            <option value="no">Без опыта</option>
+                            <option value="1-3">1-3 года</option>
+                            <option value="3-5">3-5 лет</option>
+                            <option value="5+">Более 5 лет</option>
+                        </select>
+                        <select id="salary">
+                            <option value="">Любая зарплата</option>
+                            <option value="50">От 50 000 руб.</option>
+                            <option value="100">От 100 000 руб.</option>
+                            <option value="150">От 150 000 руб.</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="job-listings">
+            <div class="container">
+                <div class="job-listings-header">
+                    <h3>Найдено <span id="jobs-count">0</span> вакансий</h3>
+                    <div class="sort-options">
+                        <span>Сортировать:</span>
+                        <select id="sort-by">
+                            <option value="date">По дате</option>
+                            <option value="salary-desc">По убыванию зарплаты</option>
+                            <option value="salary-asc">По возрастанию зарплаты</option>
+                            <option value="relevance">По релевантности</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="jobs-container" id="jobs-container">
+                    
+                </div>
+                <div class="pagination">
+                    <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                    <span class="current-page">1</span>
+                    <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>JobFinder</h3>
+                    <p>Лучшее агентство занятости в вашем регионе</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: vadimpotrebkodomashni@gmail.com</p>
+                    <p>Телефон: +375 (50) 515-05-10</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Соцсети</h3>
+                    <div class="social-links">
+                        <a href="https://t.me/Sosambba"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.instagram.com/smile9face/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 JobFinder. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scriptsmain.js"></script>
+    <script src="scriptsstorage.js"></script>
+    <script src="scriptsvacancy.js"></script>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadVacancies();
+        });
+    
+        function loadVacancies() {
+            const vacancies = JSON.parse(localStorage.getItem('vacancies') || []);
+            const jobsContainer = document.getElementById('jobs-container');
+            const jobsCount = document.getElementById('jobs-count');
+            
+            jobsContainer.innerHTML = '';
+            jobsCount.textContent = vacancies.length;
+            
+            if (vacancies.length === 0) {
+                jobsContainer.innerHTML = `
+                    <div class="no-jobs">
+                        <p>Пока нет доступных вакансий</p>
+                        <a href="create-vacancy.html" class="btn btn-primary">Разместить вакансию</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            vacancies.forEach((vacancy, index) => {
+                const jobElement = document.createElement('div');
+                jobElement.className = 'job-card';
+                jobElement.innerHTML = `
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">${vacancy['vacancy-title']}</h3>
+                            <p class="job-company">${vacancy['company-name']}</p>
+                        </div>
+                        <div class="job-salary">
+                            ${vacancy['salary-from'] ? `от ${vacancy['salary-from']}` : ''}
+                            ${vacancy['salary-to'] ? ` до ${vacancy['salary-to']}` : ''}
+                            ${vacancy['salary-from'] || vacancy['salary-to'] ? ' руб.' : 'По договоренности'}
+                        </div>
+                    </div>
+                    <div class="job-info">
+                        <div class="job-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${vacancy['vacancy-city']}</span>
+                        </div>
+                        <div class="job-info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>${getExperienceText(vacancy['experience-required'])}</span>
+                        </div>
+                    </div>
+                    <div class="job-description">${vacancy['vacancy-description']}</div>
+                    ${vacancy['skills-required'] ? `
+                    <div class="job-skills">
+                        ${vacancy['skills-required'].split(',').map(skill => 
+                            `<span class="skill-tag">${skill.trim()}</span>`
+                        ).join('')}
+                    </div>` : ''}
+                    <div class="job-actions">
+                        <button class="btn btn-primary">Откликнуться</button>
+                        <button class="btn btn-danger delete-btn">Удалить</button>
+                    </div>
+                `;
+                
+                jobElement.querySelector('.delete-btn').addEventListener('click', function() {
+                    deleteVacancy(index);
+                });
+                
+                jobsContainer.appendChild(jobElement);
+            });
+        }
+    
+        function deleteVacancy(index) {
+            if (confirm('Вы уверены, что хотите удалить эту вакансию?')) {
+                let vacancies = JSON.parse(localStorage.getItem('vacancies') || '[]');
+                vacancies.splice(index, 1);
+                localStorage.setItem('vacancies', JSON.stringify(vacancies));
+                loadVacancies();
+            }
+        }
+    
+        function getExperienceText(experience) {
+            const experiences = {
+                'no': 'Без опыта',
+                '1-3': '1-3 года',
+                '3-5': '3-5 лет',
+                '5+': 'Более 5 лет'
+            };
+            return experiences[experience] || experience;
+        }
+        </script>
+</body>
+</html>

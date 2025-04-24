@@ -1,0 +1,42 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin box-shadow {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+    transition: $property $duration $timing;
+}
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == sm {
+        @media (max-width: $breakpoint-sm) {
+            @content;
+        }
+    }
+    @if $breakpoint == md {
+        @media (max-width: $breakpoint-md) {
+            @content;
+        }
+    }
+    @if $breakpoint == lg {
+        @media (max-width: $breakpoint-lg) {
+            @content;
+        }
+    }
+    @if $breakpoint == xl {
+        @media (max-width: $breakpoint-xl) {
+            @content;
+        }
+    }
+}

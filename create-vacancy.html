@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Разместить вакансию | JobFinder</title>
+    <link rel="stylesheet" href="stylesmain.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                </svg>
+                <h1><a href= index.html>JobFinder</a></h3>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="jobs.html">Вакансии</a></li>
+                    <li><a href="create-resume.html">Создать резюме</a></li>
+                    <li><a href="create-vacancy.html" class="active">Разместить вакансию</a></li>
+                </ul>
+            </nav>
+            <a href="profile.html" class="profile-link">
+                <i class="fas fa-user-circle"></i>
+            </a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="vacancy-form-section">
+            <div class="container">
+                <h2 class="section-title">Разместить вакансию</h2>
+                <form id="vacancy-form" class="vacancy-form">
+                    <div class="form-section">
+                        <h3>Информация о компании</h3>
+                        <div class="form-group">
+                            <label for="company-name">Название компании*</label>
+                            <input type="text" id="company-name" name="company-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-description">Описание компании</label>
+                            <textarea id="company-description" name="company-description" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-website">Вебсайт компании</label>
+                            <input type="url" id="company-website" name="company-website">
+                        </div>
+                        <div class="form-group">
+                            <label for="company-logo">Логотип компании</label>
+                            <input type="file" id="company-logo" name="company-logo" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Информация о вакансии</h3>
+                        <div class="form-group">
+                            <label for="vacancy-title">Название вакансии*</label>
+                            <input type="text" id="vacancy-title" name="vacancy-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vacancy-description">Описание вакансии*</label>
+                            <textarea id="vacancy-description" name="vacancy-description" rows="5" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="vacancy-city">Город*</label>
+                                <input type="text" id="vacancy-city" name="vacancy-city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="vacancy-address">Адрес</label>
+                                <input type="text" id="vacancy-address" name="vacancy-address">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Требования и условия</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="experience-required">Требуемый опыт</label>
+                                <select id="experience-required" name="experience-required">
+                                    <option value="no">Без опыта</option>
+                                    <option value="1-3">1-3 года</option>
+                                    <option value="3-5">3-5 лет</option>
+                                    <option value="5+">Более 5 лет</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="employment-type">Тип занятости</label>
+                                <select id="employment-type" name="employment-type">
+                                    <option value="full">Полная занятость</option>
+                                    <option value="part">Частичная занятость</option>
+                                    <option value="remote">Удаленная работа</option>
+                                    <option value="project">Проектная работа</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="salary-from">Зарплата от (руб.)</label>
+                                <input type="number" id="salary-from" name="salary-from">
+                            </div>
+                            <div class="form-group">
+                                <label for="salary-to">Зарплата до (руб.)</label>
+                                <input type="number" id="salary-to" name="salary-to">
+                            </div>
+                            <div class="form-group">
+                                <label for="salary-type">Тип зарплаты</label>
+                                <select id="salary-type" name="salary-type">
+                                    <option value="net">На руки</option>
+                                    <option value="gross">До вычета налогов</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="skills-required">Требуемые навыки (через запятую)</label>
+                            <textarea id="skills-required" name="skills-required" rows="3" placeholder="Например: HTML, CSS, JavaScript, Photoshop"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Контакты</h3>
+                        <div class="form-group">
+                            <label for="contact-person">Контактное лицо*</label>
+                            <input type="text" id="contact-person" name="contact-person" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email для откликов*</label>
+                            <input type="email" id="contact-email" name="contact-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Контактный телефон</label>
+                            <input type="tel" id="contact-phone" name="contact-phone">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Опубликовать вакансию</button>
+                        <button type="button" id="preview-vacancy" class="btn btn-secondary">Предпросмотр</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>JobFinder</h3>
+                    <p>Лучшее агентство занятости в вашем регионе</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: vadimpotrebkodomashni@gmail.com</p>
+                    <p>Телефон: +375 (50) 515-05-10</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Соцсети</h3>
+                    <div class="social-links">
+                        <a href="https://t.me/Sosambba"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.instagram.com/smile9face/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 JobFinder. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scriptsmain.js"></script>
+    <script src="scriptsvacancy.js"></script>
+    <script>
+        document.getElementById('vacancy-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Собираем данные формы
+            const formData = new FormData(this);
+            const vacancyData = {};
+            for (let [key, value] of formData.entries()) {
+                vacancyData[key] = value;
+            }
+            
+            // Генерируем XML
+            const xmlString = generateVacancyXML(vacancyData);
+            
+            // Сохраняем вакансию в localStorage
+            saveVacancyToStorage(vacancyData);
+            
+            // Скачиваем XML файл
+            downloadXML(xmlString, 'vacancy.xml');
+            
+            // Перенаправляем на страницу вакансий
+            window.location.href = 'jobs.html';
+        });
+    
+        function generateVacancyXML(data) {
+            return `<?xml version="1.0" encoding="UTF-8"?>
+    <vacancy>
+        <company>
+            <name>${escapeXML(data['company-name'])}</name>
+            <description>${escapeXML(data['company-description'])}</description>
+            <website>${escapeXML(data['company-website'])}</website>
+        </company>
+        <position>
+            <title>${escapeXML(data['vacancy-title'])}</title>
+            <description>${escapeXML(data['vacancy-description'])}</description>
+            <city>${escapeXML(data['vacancy-city'])}</city>
+            <address>${escapeXML(data['vacancy-address'])}</address>
+        </position>
+        <requirements>
+            <experience>${escapeXML(data['experience-required'])}</experience>
+            <employment-type>${escapeXML(data['employment-type'])}</employment-type>
+            <salary>
+                <from>${escapeXML(data['salary-from'])}</from>
+                <to>${escapeXML(data['salary-to'])}</to>
+                <type>${escapeXML(data['salary-type'])}</type>
+            </salary>
+            <skills>${escapeXML(data['skills-required'])}</skills>
+        </requirements>
+        <contacts>
+            <person>${escapeXML(data['contact-person'])}</person>
+            <email>${escapeXML(data['contact-email'])}</email>
+            <phone>${escapeXML(data['contact-phone'])}</phone>
+        </contacts>
+        <meta>
+            <posted>${new Date().toISOString()}</posted>
+        </meta>
+    </vacancy>`;
+        }
+    
+        function escapeXML(str) {
+            if (!str) return '';
+            return str.replace(/&/g, '&amp;')
+                      .replace(/</g, '&lt;')
+                      .replace(/>/g, '&gt;')
+                      .replace(/"/g, '&quot;')
+                      .replace(/'/g, '&apos;');
+        }
+    
+        function saveVacancyToStorage(data) {
+            let vacancies = JSON.parse(localStorage.getItem('vacancies') || '[]');
+            vacancies.push(data);
+            localStorage.setItem('vacancies', JSON.stringify(vacancies));
+        }
+    
+        function downloadXML(xmlString, filename) {
+            const blob = new Blob([xmlString], { type: 'application/xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        </script>
+</body>
+</html>

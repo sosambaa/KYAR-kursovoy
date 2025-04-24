@@ -1,0 +1,118 @@
+// Mobile First Approach
+
+// Small devices (landscape phones, 576px and up)
+@include responsive(sm) {
+    .header {
+        .nav {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-150%);
+            transition: transform 0.3s ease;
+            z-index: 999;
+
+            &.active {
+                transform: translateY(0);
+            }
+
+            ul {
+                flex-direction: column;
+                padding: 20px;
+
+                li {
+                    width: 100%;
+
+                    a {
+                        display: block;
+                        padding: 10px 0;
+
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .mobile-menu-btn {
+            display: block;
+        }
+    }
+
+    .hero {
+        padding: 60px 0;
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            gap: 10px;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+
+    .job-search {
+        .filters {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .profile-section {
+        .profile-header {
+            .profile-actions {
+                .btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+
+        .btn {
+            width: 100%;
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@include responsive(md) {
+    .features {
+        .features-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .job-listings {
+        .job-card {
+            .job-actions {
+                flex-direction: column;
+                gap: 10px;
+
+                .btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@include responsive(lg) {
+    // Add specific styles for large devices if needed
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@include responsive(xl) {
+    // Add specific styles for extra large devices if needed
+}

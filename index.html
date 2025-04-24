@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobFinder - Агентство занятости</title>
+    <link rel="stylesheet" href="stylesmain.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                </svg>
+                <h1><a href= index.html>JobFinder</a></h3>
+            </div>
+            <nav class="nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="jobs.html">Вакансии</a></li>
+                    <li><a href="create-resume.html">Создать резюме</a></li>
+                    <li><a href="create-vacancy.html">Разместить вакансию</a></li>
+                </ul>
+            </nav>
+            <a href="profile.html" class="profile-link">
+                <i class="fas fa-user-circle"></i>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-text">
+                  <h1 class="hero-title">Найдите <span class="highlight">работу мечты</span> с JobFinder</h1>
+                  <p class="hero-subtitle">Мы соединяем талантливых специалистов с ведущими работодателями рынка</p>
+                  <div class="hero-actions">
+                    <a href="jobs.html" class="action-btn primary">Найти работу</a>
+                    <a href="create-vacancy.html" class="action-btn secondary">Разместить вакансию</a>
+                  </div>
+                </div>
+              </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                        </svg>
+                        <h3>Простота</h3>
+                        <p>Интуитивно понятный интерфейс для быстрого поиска</p>
+                    </div>
+                    <div class="feature-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                            <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                        <h3>Эффективность</h3>
+                        <p>Тысячи актуальных вакансий от проверенных работодателей</p>
+                    </div>
+                    <div class="feature-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                        </svg>
+                        <h3>Поддержка</h3>
+                        <p>Персональный менеджер поможет на всех этапах</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <h2 class="section-title">Наши достижения</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="12500">0</span>
+                        <span class="stat-label">Вакансий</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="9800">0</span>
+                        <span class="stat-label">Соискателей</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="3200">0</span>
+                        <span class="stat-label">Компаний</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="87">0</span>
+                        <span class="stat-label">% успешных трудоустройств</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>JobFinder</h3>
+                    <p>Лучшее агентство занятости в вашем регионе</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: vadimpotrebkodomashni@gmail.com</p>
+                    <p>Телефон: +375 (50) 515-05-10</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Соцсети</h3>
+                    <div class="social-links">
+                        <a href="https://t.me/Sosambba"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.instagram.com/smile9face/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 JobFinder. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scriptsmain.js"></script>
+</body>
+</html>
